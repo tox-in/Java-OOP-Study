@@ -11,7 +11,18 @@ public class CopyCharacter {
 
         try{
             inputStream = new FileReader("inputChar.txt");
-            outputStream = new FileReader("inputChar.txt");
+            outputStream = new FileWriter("outputChar.txt");
+            int c;
+
+            while((c = inputStream.read()) != -1) {
+                outputStream.write(c);
+            }
+        } finally {
+            if(inputStream != null) {
+                inputStream.close();
+            }
+            if(outputStream != null)
+                outputStream.close();
         }
     }
 }
